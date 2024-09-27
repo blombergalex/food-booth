@@ -12,6 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        RubikMono: ['"Rubik Mono One", monospace'],
+      }
     },
   },
   plugins: [],
