@@ -17,3 +17,8 @@ export type RecipeType = {
   strInstructions?: string,
   strYoutube?: string
 }
+
+export type ButtonType = {
+  buttonText: string,
+  onClick: () => void,
+}

@@ -34,7 +34,7 @@ export default function Home() {
     <>
       {user && (
         <div className="flex flex-col space-y-2 p-2">
-          <p>This is the home page</p>
+          <p>This is the home page</p> 
           <p>You're favourite category of food is {user.category}</p>
 
           {recipes &&

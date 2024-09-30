@@ -4,6 +4,7 @@ import { SetStateAction, useState } from "react"
 import { registeredUsers } from "@/utils/users";
 import { UserContextType, UserType } from "@/utils/types";
 import { useUserContext } from "@/utils/contexts";
+import Button from "../Button";
 
 const LogIn = () => {
   const [userInput, setUserInput] = useState<string | null>(null);
@@ -25,11 +26,11 @@ const LogIn = () => {
   }
 
   return(
-    <div className="space-x-2">
-      <p className="m-2">Enter username to log in</p>
+    <div className="space-x-2 text-black p-2 text-right border border-blue-400">
+      <p className="m-2 text-black">Are you here often? Log in to see your saved recipes.</p>
       <label htmlFor="user-input">Enter user name</label>
-      <input className="text-black p-2 rounded-md" id="user-input" onChange={handleChange}/>
-      <button className="bg-green-500 p-2 rounded-md" onClick={handleClick}>Login</button>
+      <input className="text-black p-4 rounded-md h-6 m-2" id="user-input" onChange={handleChange}/>
+      <Button buttonText="Go" onClick={handleClick}/>
     </div>
   )
 }

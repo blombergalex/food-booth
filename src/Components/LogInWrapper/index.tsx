@@ -4,6 +4,7 @@ import LogIn from "../Login";
 import { useUserContext } from "@/utils/contexts";
 import { UserContextType } from "@/utils/types";
 import Menu from "../Menu";
+import GuestHome from "../GuestHome";
 
 const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
   const { user } = useUserContext() as UserContextType;
@@ -11,7 +12,10 @@ const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       {!user ? (
-        <LogIn /> // also show one random generated recipe on the log in page
+        <>
+          <LogIn />
+          <GuestHome />
+        </>
       ) : (
         <>
           <Menu />
