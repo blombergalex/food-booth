@@ -22,3 +22,8 @@ export type ButtonType = {
   buttonText: string,
   onClick: () => void,
 }
+
+export type RecipeFetcherType = {
+  middle: string,
+  end: string,
+}
