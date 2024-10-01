@@ -34,8 +34,8 @@ export default function Home() {
   return (
     <>
       {user && (
-        <div className="flex flex-col space-y-2 p-2 text-black">
-          <p>
+        <div className="flex flex-col space-y-2 p-6 text-black">
+          <p className="pl-2 my-4">
             You're favourite category of food is {user.category.toLowerCase()},
             here are some recipes you might like!
           </p>

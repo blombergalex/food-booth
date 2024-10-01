@@ -11,7 +11,7 @@ const recipePage = ({params}: {params:{id:string}}) => {
   const [recipe, setRecipe] = useState<RecipeType | null>(null)
 
   const fetchRecipe = async () => {
-    const data = await recipeFetcher({middle: "lookup", end: id});
+    const data = await recipeFetcher({middle: "lookup", end: `?i=${id}`});
 
     if (data) {
       console.log(data)

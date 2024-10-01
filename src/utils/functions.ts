@@ -4,7 +4,7 @@ export const recipeFetcher = async ({middle, end}:RecipeFetcherType) => {
   console.log(`Fetching recipe with middle: `+ middle + ` and end: `+ end)
     try {
       const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/${middle}.php${end}`
+        `https://www.themealdb.com/api/json/v1/1/${middle}.php${end}` // reformat to just take one parameter
       );
       const data = await response.json();
       return(data)

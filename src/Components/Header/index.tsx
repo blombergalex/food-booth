@@ -1,7 +1,7 @@
 
 const Header = () => {
   return (
-    <header className='w-full flex justify-center text-black bg-gray-50 text-2xl md:text-5xl text-center p-10 font-semibold capitalize'>
+    <header className='w-full flex justify-center text-black bg-gray-50 text-4xl md:text-5xl text-center p-10 font-semibold capitalize underline underline-offset-4'>
       <h1 className="font-RubikMono">The Food Booth</h1>
     </header>
   )
