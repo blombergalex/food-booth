@@ -10,30 +10,33 @@ export default function Home() {
   const { user } = useUserContext() as UserContextType;
   const [recipes, setRecipes] = useState<RecipeType[] | null>(null);
 
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        if (user) {
-          const response = await fetch(
-            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${user.category}`
-          ); // turn this into a function that can take the end of the link
-          const data = await response.json();
-
-          const topFiveRecipes = data.meals.slice(0, 5);
-          console.log(data);
-          setRecipes(topFiveRecipes);
-        }
-      } catch (error) {
-        console.log(error);
+  const fetchRecipes = async () => {
+    try {
+      if (user) {
+        const response = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/filter.php?c=${user.category}`
+        ); // turn this into a function that can take the end of the link
+        const data = await response.json();
+        
+        
+        
+        const topFiveRecipes = data.meals.slice(0, 5);
+        console.log(data);
+        setRecipes(topFiveRecipes);
       }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     fetchRecipes();
   }, []);
 
   return (
     <>
       {user && (
-        <div className="flex flex-col space-y-2 p-2">
+        <div className="flex flex-col space-y-2 p-2 text-black">
           <p>This is the home page</p> 
           <p>You're favourite category of food is {user.category}</p>
 
