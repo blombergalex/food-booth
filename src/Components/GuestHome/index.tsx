@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Button";
-import { Card, CardMedia } from "@mui/material"
 import { recipeFetcher } from "@/utils/functions";
 import { RecipeType } from "@/utils/types";
 
