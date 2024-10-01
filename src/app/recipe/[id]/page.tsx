@@ -42,8 +42,7 @@ useEffect(() => {
           width={450}
         />
       </div>
-
-      
+      // Add recipe to favourites button 
       }
     </div>
   )
