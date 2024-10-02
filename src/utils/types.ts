@@ -16,6 +16,8 @@ export type RecipeType = {
   strArea?: string,
   strInstructions?: string,
   strYoutube?: string,
+  // ingredientValues: string[],
+  // measureValues: string[],
 }
 
 export type ButtonType = {
