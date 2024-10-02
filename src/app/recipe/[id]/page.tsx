@@ -15,7 +15,6 @@ const recipePage = ({params}: {params:{id:string}}) => {
 
     if (data) {
       setRecipe(data.meals[0]);
-      // setRecipe();
     } else {
       console.log("No meal found");
     }

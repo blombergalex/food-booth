@@ -5,26 +5,24 @@ import { RecipeType, UserContextType } from "@/utils/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { recipeFetcher } from "@/utils/functions";
 
 export default function Home() {
   const { user } = useUserContext() as UserContextType;
   const [recipes, setRecipes] = useState<RecipeType[] | null>(null);
 
   const fetchRecipes = async () => {
-    try {
       if (user) {
-        const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/filter.php?c=${user.category}`
-        ); // turn this into a function that can take the end of the link
-        const data = await response.json();
+        const data = await recipeFetcher({action: `filter.php?c=${user.category}`});
 
-        const topFiveRecipes = data.meals.slice(0, 5);
-        console.log(data);
-        setRecipes(topFiveRecipes);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+        const shuffleArray = (array: RecipeType[]) => {
+          return array.sort(() => Math.random() - 0.5);
+        };
+
+        const randomFiveRecipes = shuffleArray(data.meals).slice(0, 5);
+
+        setRecipes(randomFiveRecipes);
+      } 
   };
 
   useEffect(() => {
@@ -35,8 +33,8 @@ export default function Home() {
     <>
       {user && (
         <div className="flex flex-col space-y-2 p-6 text-black">
-          <p className="pl-2 my-4">
-            You're favourite category of food is {user.category.toLowerCase()},
+          <p className="pl-2 my-4 text-xl">
+            Your favourite category of food is {user.category.toLowerCase()},
             here are some recipes you might like!
           </p>
           <div className="flex flex-wrap">

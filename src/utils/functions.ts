@@ -13,10 +13,7 @@ export const recipeFetcher = async ({action}:RecipeFetcherType) => {
   } 
 };
 
-//                                              middle    end:
+//                                              action:
 //  one random: www.themealdb.com/api/json/v1/1/random.php 
 // by category: www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
 //filter by id: www.themealdb.com/api/json/v1/1/lookup.php?i=52772
-
-//  middle is always random, filter or lookup
-// end is either empty || ?c={user.category} || ?i={meal id} 

@@ -15,7 +15,7 @@ export type RecipeType = {
   strMealThumb: string,
   strArea?: string,
   strInstructions?: string,
-  strYoutube?: string
+  strYoutube?: string,
 }
 
 export type ButtonType = {

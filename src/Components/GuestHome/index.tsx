@@ -26,9 +26,9 @@ const GuestHome = () => {
   };
 
   return (
-    <div className="flex flex-col items-center text-black p-4 mx-auto space-y-3">
-      <h3 className="text-2xl">Welcome to The Food Booth</h3>
-      <p className="font-semibold text-2xl">Get inspired, cook, enjoy!</p>
+    <div className="flex flex-col items-center text-black p-4 my-10 mx-auto space-y-3 text-xl">
+      <h3 className="text-xl md:text-2xl">Welcome to The Food Booth</h3>
+      <p className="font-semibold md:text-2xl">Get inspired, cook, enjoy!</p>
       <Button buttonText="New recipe" onClick={handleClick} />
       {meal ? (
         <div className="border-2 w-3/4 bg-gray-900 text-slate-200 rounded-3xl p-10  space-y-16">
