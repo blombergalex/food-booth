@@ -24,6 +24,5 @@ export type ButtonType = {
 }
 
 export type RecipeFetcherType = {
-  middle: string,
-  end: string,
+  action: string,
 }
