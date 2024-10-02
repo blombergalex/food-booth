@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import { recipeFetcher } from "@/utils/functions";
 import { RecipeType } from "@/utils/types";
+import { CircularProgress } from "@mui/material";
 
 const GuestHome = () => {
   const [meal, setMeal] = useState<RecipeType | null>(null);
 
   const fetchRecipe = async () => {
-    const data = await recipeFetcher({ middle: "random", end: "" });
+    const data = await recipeFetcher({ action: "random.php"});
 
     if (data && data.meals.length > 0) {
       setMeal(data.meals[0]);
@@ -52,10 +53,7 @@ const GuestHome = () => {
           )}
         </div>
       ) : (
-        <>
-          <p>Click the button to get a recipe!</p>
-          <Button buttonText="Get recipe" onClick={handleClick} />
-        </>
+          < CircularProgress  color="inherit" className="m-6 text-zinc-950"/>
       )}
     </div>
   );
