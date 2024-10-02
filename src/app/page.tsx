@@ -1,29 +1,36 @@
 "use client";
 
-import { useUserContext } from "@/utils/contexts"; //be imported so we can use our user
+import { useUserContext } from "@/utils/contexts";
 import { RecipeType, UserContextType } from "@/utils/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { recipeFetcher } from "@/utils/functions";
+import Button from "@/Components/Button";
 
 export default function Home() {
   const { user } = useUserContext() as UserContextType;
   const [recipes, setRecipes] = useState<RecipeType[] | null>(null);
 
   const fetchRecipes = async () => {
-      if (user) {
-        const data = await recipeFetcher({action: `filter.php?c=${user.category}`});
+    if (user) {
+      const data = await recipeFetcher({
+        action: `filter.php?c=${user.category}`,
+      });
 
-        const shuffleArray = (array: RecipeType[]) => {
-          return array.sort(() => Math.random() - 0.5);
-        };
+      const shuffleArray = (array: RecipeType[]) => {
+        return array.sort(() => Math.random() - 0.5);
+      };
 
-        const randomFiveRecipes = shuffleArray(data.meals).slice(0, 5);
+      const randomFiveRecipes = shuffleArray(data.meals).slice(0, 5);
 
-        setRecipes(randomFiveRecipes);
-      } 
+      setRecipes(randomFiveRecipes);
+    }
   };
+
+  const handleClick = () => {
+    fetchRecipes();
+  }
 
   useEffect(() => {
     fetchRecipes();
@@ -40,7 +47,7 @@ export default function Home() {
           <div className="flex flex-wrap">
             {recipes &&
               recipes.map((meal: RecipeType) => (
-                <div 
+                <div
                   key={meal.idMeal}
                   className="m-2 p-6 bg-zinc-900 rounded-3xl w-[300px] items-center"
                 >
@@ -55,11 +62,12 @@ export default function Home() {
                       alt={`Image of ${meal.strMeal}`}
                       className="rounded-lg m-3"
                     />
-                      {meal.strMeal}
+                    {meal.strMeal}
                   </Link>
                 </div>
               ))}
           </div>
+          <Button onClick={handleClick} buttonText="Regenerate"/>
         </div>
       )}
     </>
