@@ -2,10 +2,10 @@
 
 import { useUserContext } from "@/utils/contexts";
 import { RecipeType, UserContextType } from "@/utils/types";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { recipeFetcher } from "@/utils/functions";
+import Link from "next/link";
+import Image from "next/image";
 import Button from "@/Components/Button";
 
 export default function Home() {
