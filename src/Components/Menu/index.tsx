@@ -4,12 +4,18 @@ import Button from '../Button'
 
 const Menu = () => {
   return (
-    <nav className='flex justify-evenly py-2'>
-      <Link className="bg-green-700 p-1 rounded-md" href="/">Home</Link>
-      <Link className="bg-purple-800 p-1 rounded-md" href="/profile">Profile</Link>
-      <Link className="bg-blue-700 p-1 rounded-md" href="/category">Category</Link>
+    <nav className='flex justify-evenly py-4 bg-black sticky top-[120px] md:top-[128px]'>
+      <Link href="/"><Button buttonText='Home' onClick={()=>{}}/></Link>
+      <Link href="/profile"><Button buttonText='Profile' onClick={()=>{}}/></Link>
+      <Link href="/category"><Button buttonText='Category' onClick={()=>{}}/></Link>
     </nav>
   )
 }
 
 export default Menu
+
+
+
+
+
+
