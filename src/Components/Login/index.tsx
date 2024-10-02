@@ -26,10 +26,10 @@ const LogIn = () => {
   }
 
   return(
-    <div className="space-x-2 text-black p-2 text-right border border-blue-400">
-      <p className="m-2 text-black">Are you here often? Log in to see your saved recipes.</p>
-      <label htmlFor="user-input">Enter user name</label>
-      <input className="text-black p-4 rounded-md h-6 m-2" id="user-input" onChange={handleChange}/>
+    <div className="space-x-2 text-black p-2 text-right bg-yellow-400">
+      <label htmlFor="user-input"></label>
+      <p className="m-2 text-black font-semibold">Got an account? Log in here!</p>
+      <input className="text-black p-4 rounded-md h-6 m-2" id="user-input" placeholder="Enter username" onChange={handleChange}/>
       <Button buttonText="Go" onClick={handleClick}/>
     </div>
   )
