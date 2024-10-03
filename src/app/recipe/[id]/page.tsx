@@ -72,7 +72,7 @@ const recipePage = ({params}: {params:{id:string}}) => {
         </div>
       </div>
       // Add recipe to favourites button 
-      // handleClick, add recipeId to array
+      // handleClick, add recipeId to savedrecipes
       }
     </div>
   )

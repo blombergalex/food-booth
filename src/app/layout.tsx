@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/Components/Header";
-import { UserProvider } from "@/utils/contexts";
+import { SavedRecipesProvider, UserProvider } from "@/utils/contexts";
 import LogInWrapper from "@/Components/LogInWrapper";
 
 const geistSans = localFont({
@@ -33,7 +33,9 @@ export default function RootLayout({
       >
         <Header />
         <UserProvider>
-          <LogInWrapper children={children} />
+          <SavedRecipesProvider>
+            <LogInWrapper children={children} />
+          </SavedRecipesProvider>
         </UserProvider>
       </body>
     </html>

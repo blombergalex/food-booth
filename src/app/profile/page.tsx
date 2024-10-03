@@ -12,7 +12,8 @@ const profile = () => {
       {user ? (
         <div>
         <p>{user.name}'s saved recipes</p>
-        {user.category}
+        {/* // show saved recipes: */}
+        <p>Your favourite category:<span>{user.category}</span></p>
       </div>
       ) : <p>No user found</p>
     }
