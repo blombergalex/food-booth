@@ -32,18 +32,19 @@ const profile = () => {
 
   return (
     <>
-      <h1>Profile Page</h1>
-      {user ? (
-        <div>
-          <p>
+      {user && (
+        <div className="p-6 space-y-2">
+          <p className="font-semibold text-zinc-950">
             Your favourite category: <span>{user.category}</span>
           </p>
-          <p>Your saved recipes:</p>
+          <p className="font-semibold text-yellow-400">Your saved recipes</p>
           {savedRecipes.length > 0 ? (
-            <ul>
+            <ul className="bg-yellow-400 p-4 rounded-xl">
               {savedRecipes.map((recipe) => (
-                <li key={recipe.id}>
-                  <Link href={`/recipe/${recipe.id}`}>
+                <li key={recipe.id} className="m-2underline underline-offset-4">
+                  <Link 
+                    href={`/recipe/${recipe.id}`}
+                    >
                     {recipeNames[recipe.id]}
                   </Link>
                   <Button
@@ -54,12 +55,10 @@ const profile = () => {
               ))}
             </ul>
           ) : (
-            <p>No saved recipes yet.</p>
+            <p>No saved recipes. Go browse some and save your favourites here!</p>
           )}
         </div>
-      ) : (
-        <p>Please log in to view your profile and saved recipes.</p>
-      )}
+      )};
     </>
   );
 };
