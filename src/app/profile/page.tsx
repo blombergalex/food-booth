@@ -41,9 +41,7 @@ const profile = () => {
             <ul className="bg-yellow-400 p-4 rounded-xl">
               {savedRecipes.map((recipe) => (
                 <li key={recipe.id} className="m-2underline underline-offset-4">
-                  <Link 
-                    href={`/recipe/${recipe.id}`}
-                    >
+                  <Link href={`/recipe/${recipe.id}`} >
                     {recipeNames[recipe.id]}
                   </Link>
                   <Button
