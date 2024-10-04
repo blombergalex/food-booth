@@ -54,11 +54,13 @@ const recipePage = ({params}: {params:{id:string}}) => {
     console.log(id);
   };
 
+  const steps = recipe?.strInstructions.split(/STEP\s*\d+/).filter(step => step.trim());
+
   return(
-    <div className="flex flex-col text-black p-4 mx-auto space-y-3">
+    <div className="flex flex-col text-black p-6 mx-auto space-y-3 items-center">
       {recipe && 
-      <div>
-        <p>{recipe.strMeal}</p>
+      <div className="space-y-3">
+        <h3 className="text-lg font-semibold">{recipe.strMeal}</h3>
         <Image 
           src={recipe.strMealThumb}
           alt={`Image of ${recipe.strMeal}`}
@@ -66,19 +68,21 @@ const recipePage = ({params}: {params:{id:string}}) => {
           width={450}
           className="rounded-lg"
         />
-        <div>
-          <p>{recipe.strInstructions}</p>
-            <ul>
-              {ingredients.map((item, index) => (
-                <li key={index}>
-                  {measures[index] && 
-                  <p> 
-                    <span className="capitalize">{item}</span>, {measures[index]}
-                  </p>
-                }
-                </li>
-              ))}
-            </ul>
+        <div className="p-1">
+          <p className="font-semibold text-md py-2">Ingredients</p>
+          <ul>
+            {ingredients.map((item, index) => (
+              <li key={index}>
+                {measures[index] && 
+                <p> 
+                  <span className="capitalize">{item}</span>, {measures[index]}
+                </p>
+              }
+              </li>
+            ))}
+          </ul>
+          <p className="font-semibold text-md pt-4">Instructions</p>
+          <p className="text-start">{recipe.strInstructions}</p>
         </div>
         <Button buttonText={isRecipeSaved ? "Unsave recipe" : "Save recipe"} onClick={handleSaveClick} />
       </div>

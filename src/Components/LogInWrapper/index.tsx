@@ -26,7 +26,7 @@ const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
         <>
           <Menu />
           <div className="flex justify-between p-6">
-            <div className="text-black">
+            <div className="text-black space-y-3">
               <p className="text-xl">Hi {user.name}</p>
               <p>Welcome to the inside!</p>
               <p>
