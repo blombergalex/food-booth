@@ -27,16 +27,18 @@ const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
         <>
           <Menu />
           <div className="bg-yellow-400 flex justify-between p-6">
-          <div className="text-black">
-            <p className="text-xl">Hi {user.name}</p>
-            <p>Welcome to the inside!</p>
-            <p>Browse, save and prepare your favourite recipes 
-              <span className="text-2xl">
-                &#127837;
-              </span>
-            </p>
-          </div>
-          <Button onClick={handleLogOut} buttonText="Log Out"/>
+            <div className="text-black">
+              <p className="text-xl">Hi {user.name}</p>
+              <p>Welcome to the inside!</p>
+              <p>Browse, save and prepare your favourite recipes 
+                <span className="text-2xl">
+                  &#127837;
+                </span>
+              </p>
+            </div>
+            <div className="fixed top-[70px] right-4 z-50 md:top-[128px]">
+              <Button onClick={handleLogOut} buttonText="Log Out"/>
+            </div>
           </div>
           {children} 
         </>
