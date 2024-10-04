@@ -32,6 +32,10 @@ const LogIn = () => {
 
   const toggleLogin = () => {
     setShowLogin(!showLogin);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
   };
 
   return (
