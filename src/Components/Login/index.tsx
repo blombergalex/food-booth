@@ -8,6 +8,7 @@ import Button from "../Button";
 
 const LogIn = () => {
   const [userInput, setUserInput] = useState<string | null>(null);
+  const [showLogin, setShowLogin] = useState<boolean>(false);
 
   const {setUser} = useUserContext() as UserContextType
 
@@ -25,14 +26,25 @@ const LogIn = () => {
     }
   }
 
+  const toggleLogin = () => {
+      setShowLogin(!showLogin);
+  }
+
   return(
-    <div className="space-x-2 text-black p-2 text-right bg-yellow-400">
-      <label htmlFor="user-input"></label>
-      <p className="m-2 text-black font-semibold">Got an account? Log in here!</p>
-      <input className="text-black p-4 rounded-md h-6 m-2" id="user-input" placeholder="Enter username" onChange={handleChange}/>
-      <Button buttonText="Go" onClick={handleClick}/>
-    </div>
-  )
-}
+    <>
+    {showLogin ? (
+      <div className="space-x-2 text-black p-2 text-right bg-yellow-400">
+        <label htmlFor="user-input"></label>
+        <p className="m-2 text-black font-semibold">Got an account? Log in here!</p>
+        <input className="text-black p-4 rounded-md h-6 m-2" id="user-input" placeholder="Enter username" onChange={handleChange}/>
+        <Button buttonText="Go" onClick={handleClick}/>
+      </div>
+      ):(
+        <div className="fixed top-2 right-2 z-50"><Button buttonText="LogIn" onClick={toggleLogin} /></div>
+      )
+      }
+      </>
+  );
+};
 
 export default LogIn;

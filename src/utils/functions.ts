@@ -16,4 +16,4 @@ export const recipeFetcher = async ({action}:RecipeFetcherType) => {
 //                                              action:
 //  one random: www.themealdb.com/api/json/v1/1/random.php 
 // by category: www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
-//filter by id: www.themealdb.com/api/json/v1/1/lookup.php?i=52772
+// filter by id: www.themealdb.com/api/json/v1/1/lookup.php?i=52772
