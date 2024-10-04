@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <Header />
         <UserProvider>
-            <LogInWrapper children={children} />
+          <LogInWrapper children={children} />
         </UserProvider>
       </body>
     </html>

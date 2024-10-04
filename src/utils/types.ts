@@ -6,9 +6,9 @@ export type UserType = {
 export type UserContextType = {
   user: UserType | null,
   setUser: (user:UserType) => void,
-  savedRecipes: SavedRecipesType[], //moved from SavedRecipesContextType
-  addRecipe: (recipeId: string) => void, //moved from SavedRecipesContextType
-  removeRecipe: (recipeId: string) => void, //moved from SavedRecipesContextType
+  savedRecipes: SavedRecipesType[], 
+  addRecipe: (recipeId: string) => void, 
+  removeRecipe: (recipeId: string) => void, 
 }
 
 export type RecipeType = {
@@ -23,13 +23,6 @@ export type RecipeType = {
 export type SavedRecipesType = {
   id: string,
 }
-
-// export type SavedRecipesContextType = {
-//   savedRecipes: SavedRecipesType[],
-//   addRecipe: (recipeId: string) => void;
-//   removeRecipe: (recipeId: string) => void;
-// }
-
 
 export type ButtonType = {
   buttonText: string,
