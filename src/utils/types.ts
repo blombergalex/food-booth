@@ -32,3 +32,8 @@ export type ButtonType = {
 export type RecipeFetcherType = {
   action: string,
 }
+
+export type CategoryType = {
+  strCategory: string,
+  strCategoryThumb: string,
+}

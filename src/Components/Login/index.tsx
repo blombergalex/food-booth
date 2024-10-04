@@ -35,13 +35,13 @@ const LogIn = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
+    });
   };
 
   return (
     <>
       {showLogin ? (
-        <div className="space-x-2 text-black p-2 text-right bg-yellow-400">
+        <div className="space-x-2 text-black p-2 text-right bg-orange-400">
           <Button buttonText="Close" onClick={toggleLogin} />
           <label htmlFor="user-input"></label>
           <p className="m-2 text-black font-semibold">
@@ -57,7 +57,7 @@ const LogIn = () => {
         </div>
       ) : (
         <div className="fixed top-[70px] right-4 z-50 md:top-[128px]">
-          <Button buttonText="LogIn" onClick={toggleLogin} />
+          <Button buttonText="Log In" onClick={toggleLogin} />
         </div>
       )}
     </>

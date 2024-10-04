@@ -5,16 +5,15 @@ import { useUserContext } from "@/utils/contexts";
 import { UserContextType } from "@/utils/types";
 import Menu from "../Menu";
 import GuestHome from "../GuestHome";
-import Button from "../Button"
+import Button from "../Button";
 
 const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
   const { user } = useUserContext() as UserContextType;
-  const {setUser} = useUserContext() as UserContextType
-
+  const { setUser } = useUserContext() as UserContextType;
 
   const handleLogOut = () => {
     setUser(null);
-  }
+  };
 
   return (
     <div>
@@ -26,21 +25,20 @@ const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
       ) : (
         <>
           <Menu />
-          <div className="bg-yellow-400 flex justify-between p-6">
+          <div className="bg-orange-400 flex justify-between p-6">
             <div className="text-black">
               <p className="text-xl">Hi {user.name}</p>
               <p>Welcome to the inside!</p>
-              <p>Browse, save and prepare your favourite recipes 
-                <span className="text-2xl">
-                  &#127837;
-                </span>
+              <p>
+                Browse, save and prepare your favourite recipes
+                <span className="text-2xl">&#127837;</span>
               </p>
             </div>
             <div className="fixed top-[70px] right-4 z-50 md:top-[128px]">
-              <Button onClick={handleLogOut} buttonText="Log Out"/>
+              <Button onClick={handleLogOut} buttonText="Log Out" />
             </div>
           </div>
-          {children} 
+          {children}
         </>
       )}
     </div>

@@ -8,7 +8,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const profile = () => {
-  const { user, savedRecipes, removeRecipe } = useUserContext() as UserContextType;
+  const { user, savedRecipes, removeRecipe } =
+    useUserContext() as UserContextType;
   const [recipeNames, setRecipeNames] = useState<Record<string, string>>({}); // record allows to define an oject with keys and values of type string
 
   useEffect(() => {
@@ -16,7 +17,9 @@ const profile = () => {
       const names: Record<string, string> = {};
 
       for (const savedRecipe of savedRecipes) {
-        const data = await recipeFetcher({ action: `lookup.php?i=${savedRecipe.id}`});
+        const data = await recipeFetcher({
+          action: `lookup.php?i=${savedRecipe.id}`,
+        });
         const recipeName = data.meals[0]?.strMeal || "Unknown Recipe";
         names[savedRecipe.id] = recipeName;
       }
@@ -36,12 +39,12 @@ const profile = () => {
           <p className="font-semibold text-zinc-950">
             Your favourite category: <span>{user.category}</span>
           </p>
-          <p className="font-semibold text-yellow-400">Your saved recipes</p>
+          <p className="font-semibold text-orange-400">Your saved recipes</p>
           {savedRecipes.length > 0 ? (
-            <ul className="bg-yellow-400 p-4 rounded-xl">
+            <ul className="bg-orange-400 p-4 rounded-xl">
               {savedRecipes.map((recipe) => (
                 <li key={recipe.id} className="m-2underline underline-offset-4">
-                  <Link href={`/recipe/${recipe.id}`} >
+                  <Link href={`/recipe/${recipe.id}`}>
                     {recipeNames[recipe.id]}
                   </Link>
                   <Button
@@ -52,10 +55,13 @@ const profile = () => {
               ))}
             </ul>
           ) : (
-            <p>No saved recipes. Go browse some and save your favourites here!</p>
+            <p>
+              No saved recipes. Go browse some and save your favourites here!
+            </p>
           )}
         </div>
-      )};
+      )}
+      ;
     </>
   );
 };
