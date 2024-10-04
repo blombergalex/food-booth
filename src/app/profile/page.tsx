@@ -35,11 +35,12 @@ const profile = () => {
   return (
     <>
       {user && (
-        <div className="p-6 space-y-2">
-          <p className="font-semibold text-zinc-950">
-            Your favourite category: <span>{user.category}</span>
-          </p>
-          <p className="font-semibold text-orange-400">Your saved recipes</p>
+        <div className="p-6 space-y-4">
+          <div>
+            <p className="font-semibold text-zinc-950">Your favourite category</p>
+            <p className="font-semibold text-orange-600">{user.category}</p>
+          </div>
+          <p className="font-semibold text-orange-400 mt-4">Your saved recipes</p>
           {savedRecipes.length > 0 ? (
             <ul className="bg-orange-400 p-4 rounded-xl">
               {savedRecipes.map((recipe) => (
