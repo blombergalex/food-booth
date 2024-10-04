@@ -8,16 +8,15 @@ import Link from "next/link";
 
 const category = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
+  const [categoryChoice, setCategoryChoice] = useState<CategoryType | null>(null);
 
   const fetchRecipes = async () => {
     const data = await recipeFetcher({ action:`categories.php` })
     console.log(data)
     const categories = data.categories;
-    // console.log(categories)
     setCategories(categories);
-    console.log(categories)
   }
-  
+
   useEffect(() => {
     fetchRecipes();
   }, [])
@@ -30,7 +29,8 @@ const category = () => {
             <div className="m-2 p-6 bg-zinc-900 rounded-3xl w-[300px]">
               <Link
                 className="flex flex-col font-semibold text-center items-center text-slate-200"
-                href={`/${category.strCategory}`}>
+                href={`/category/${category.strCategory}`}
+              >
                 <p>{category.strCategory}</p>
                 <Image
                   src={category.strCategoryThumb}
