@@ -1,14 +1,17 @@
 'use client'
 
 import { recipeFetcher } from "@/utils/functions";
-import { RecipeType } from "@/utils/types";
+import { RecipeType, UserContextType } from "@/utils/types";
 import Link from "next/link";
 import Image from "next/image"
 import { useEffect, useState } from "react";
+import { useUserContext } from "@/utils/contexts";
+import Button from "@/Components/Button";
 
 const recipesByCategory = ({params}:{params:{category:string}}) => {
   const {category} = params;
   const [recipes, setRecipes] = useState<RecipeType[] | null>(null);
+  const {user, setUser} = useUserContext() as UserContextType;
   
   const fetchRecipes = async () => {
     const recipes = await recipeFetcher({action:`filter.php?c=${category}`});
@@ -17,11 +20,26 @@ const recipesByCategory = ({params}:{params:{category:string}}) => {
 
   useEffect(() => {
     fetchRecipes();
-  }, [])
+    console.log(user)
+  }, [category])
+
+  const saveCategoryClick = () => {
+    if (user) {
+      setUser({
+        ...user,
+        category
+      })
+    }
+  }
   
   return(
     <>
-      <h3 className="p-6 capitalize font-semibold">Our most tasty {category} recipes</h3>
+      <h3 className="p-6 capitalize font-semibold text-lg">Our most tasty {category} recipes</h3>
+      {user?.category !== category ? (
+        <div className="p-6"><Button buttonText="Make this your favourite category" onClick={saveCategoryClick}/></div>
+      ) : (
+        <p className="m-6 font-semibold">{category} is your favourite type of meal!</p>
+      )}
       <div className="p-6 flex flex-wrap">
         {recipes &&
           recipes.map((meal: RecipeType) => (

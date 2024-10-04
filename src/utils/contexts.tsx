@@ -8,7 +8,6 @@ const UserContext = createContext<UserContextType | null>(null);
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<UserType|null> (null);
   const [savedRecipes, setSavedRecipes] = useState<SavedRecipesType[]>([]);
-  // const [category, setCategory] = useState<UserType>
 
   const updateSavedRecipes = (savedRecipes: string[]) => { 
     if (user) {
@@ -33,13 +32,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
       return updatedRecipes;
     });
   };
-
-  // const editCategory = (category: string) => {
-  //   setUser((prevUser) => {
-  //     const updatedUser = [...user], {category};
-
-  //   })
-  // }
 
   return (
     <UserContext.Provider value={{ user, setUser, savedRecipes, addRecipe, removeRecipe  }}>

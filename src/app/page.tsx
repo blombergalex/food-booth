@@ -67,7 +67,7 @@ export default function Home() {
                 </div>
               ))}
           </div>
-          <Button onClick={handleClick} buttonText="Regenerate"/>
+          <div className="w-fit"><Button onClick={handleClick} buttonText="Regenerate"/></div>
         </div>
       )}
     </>
