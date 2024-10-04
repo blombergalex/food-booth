@@ -1,18 +1,18 @@
 'use client'
 
-import { RecipeType, SavedRecipesContextType } from "@/utils/types";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import { RecipeType, UserContextType } from "@/utils/types";
 import { recipeFetcher } from "@/utils/functions";
-import { useSavedRecipesContext } from "@/utils/contexts";
+import { useUserContext } from "@/utils/contexts";
 import Button from "@/Components/Button";
+import Image from "next/image";
 
 const recipePage = ({params}: {params:{id:string}}) => {
   const {id} = params;
   const [recipe, setRecipe] = useState<RecipeType | null>(null)
   const [ingredients, setIngredients] = useState<string[]>([])
   const [measures, setMeasures] = useState<string[]>([])
-  const {savedRecipes, addRecipe, removeRecipe} = useSavedRecipesContext() as SavedRecipesContextType;
+  const {savedRecipes, addRecipe, removeRecipe} = useUserContext() as UserContextType;
 
   const fetchRecipe = async () => {
     const data = await recipeFetcher({action: `lookup.php?i=${id}`});

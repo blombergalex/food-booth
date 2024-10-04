@@ -1,12 +1,14 @@
 export type UserType = {
   name: string,
   category: string,
-  savedRecipes: string[]
 }
 
 export type UserContextType = {
   user: UserType | null,
   setUser: (user:UserType) => void,
+  savedRecipes: SavedRecipesType[], //moved from SavedRecipesContextType
+  addRecipe: (recipeId: string) => void, //moved from SavedRecipesContextType
+  removeRecipe: (recipeId: string) => void, //moved from SavedRecipesContextType
 }
 
 export type RecipeType = {
@@ -18,15 +20,16 @@ export type RecipeType = {
   strYoutube?: string,
 }
 
-export type SavedRecipesContextType = {
-  savedRecipes: SavedRecipesType[],
-  addRecipe: (recipeId: string) => void;
-  removeRecipe: (recipeId: string) => void;
+export type SavedRecipesType = {
+  id: string,
 }
 
-export type SavedRecipesType = {
-  id: string, // to be able to pass idMeal to the recipe page
-}
+// export type SavedRecipesContextType = {
+//   savedRecipes: SavedRecipesType[],
+//   addRecipe: (recipeId: string) => void;
+//   removeRecipe: (recipeId: string) => void;
+// }
+
 
 export type ButtonType = {
   buttonText: string,

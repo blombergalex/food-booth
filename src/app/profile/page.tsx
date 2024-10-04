@@ -1,15 +1,14 @@
 "use client";
 
 import Button from "@/Components/Button";
-import { useSavedRecipesContext, useUserContext } from "@/utils/contexts";
+import { useUserContext } from "@/utils/contexts";
 import { recipeFetcher } from "@/utils/functions";
-import { SavedRecipesContextType, UserContextType } from "@/utils/types";
+import { UserContextType } from "@/utils/types";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const profile = () => {
-  const { user } = useUserContext() as UserContextType;
-  const { savedRecipes, removeRecipe } =  useSavedRecipesContext() as SavedRecipesContextType;
+  const { user, savedRecipes, removeRecipe } = useUserContext() as UserContextType;
   const [recipeNames, setRecipeNames] = useState<Record<string, string>>({}); // record allows to define an oject with keys and values of type string
 
   useEffect(() => {
