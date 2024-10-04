@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image"
 import { useEffect, useState } from "react";
 
-const recipiesByCategory = ({params}:{params:{category:string}}) => {
+const recipesByCategory = ({params}:{params:{category:string}}) => {
   const {category} = params;
   const [recipes, setRecipes] = useState<RecipeType[] | null>(null);
   
@@ -21,7 +21,7 @@ const recipiesByCategory = ({params}:{params:{category:string}}) => {
   
   return(
     <>
-      <h3 className="p-6 capitalize font-semibold">Our most tasty {category} recipies</h3>
+      <h3 className="p-6 capitalize font-semibold">Our most tasty {category} recipes</h3>
       <div className="p-6 flex flex-wrap">
         {recipes &&
           recipes.map((meal: RecipeType) => (
@@ -49,6 +49,4 @@ const recipiesByCategory = ({params}:{params:{category:string}}) => {
   )
 }
 
-export default recipiesByCategory;
-
-// ?c=Seafood
+export default recipesByCategory;

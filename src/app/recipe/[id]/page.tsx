@@ -54,7 +54,6 @@ const recipePage = ({params}: {params:{id:string}}) => {
     console.log(id);
   };
 
-  const steps = recipe?.strInstructions.split(/STEP\s*\d+/).filter(step => step.trim());
 
   return(
     <div className="flex flex-col text-black p-6 mx-auto space-y-3 items-center">
