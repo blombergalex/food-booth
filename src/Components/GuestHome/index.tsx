@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Button from "../Button";
 import { recipeFetcher } from "@/utils/functions";
 import { RecipeType } from "@/utils/types";
 import { CircularProgress } from "@mui/material";
+import Button from "../Button";
 
 const GuestHome = () => {
   const [meal, setMeal] = useState<RecipeType | null>(null);
@@ -25,10 +25,19 @@ const GuestHome = () => {
     fetchRecipe();
   };
 
+  const handleLoginAtTopClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
-    <div className="flex flex-col items-center text-black p-4 my-10 mx-auto space-y-3 text-xl">
-      <h3 className="text-xl md:text-2xl">Welcome to The Food Booth</h3>
-      <p className="font-semibold md:text-2xl">Get inspired, cook, enjoy!</p>
+    <div className="flex flex-col items-center text-black p-4 my-10 mx-auto space-y-8 text-xl">
+      <div>
+        <h3 className="text-xl md:text-2xl">Welcome to The Food Booth</h3>
+        <p className="font-semibold md:text-2xl">Get inspired, cook, enjoy!</p>
+      </div>
       <Button buttonText="New recipe" onClick={handleClick} />
       {meal ? (
         <div className="border-2 w-3/4 bg-gray-900 text-slate-200 rounded-3xl p-10  space-y-16">
@@ -52,7 +61,7 @@ const GuestHome = () => {
               >
                 Go to Recipe Video
               </a>
-              <p>Or Log In at the top to get full recipe details.</p>
+              <p>Or <span className="underline underline-offset-2 cursor-pointer" onClick={handleLoginAtTopClick}>Log in</span> at the top to get full recipe details.</p>
             </>
           )}
         </div>
