@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/Components/Header";
+import Header from "@/components/Header";
 import { UserProvider } from "@/utils/contexts";
-import LogInWrapper from "@/Components/LogInWrapper";
+import LogInWrapper from "@/components/LogInWrapper";
 
 export const metadata: Metadata = {
   title: "The Food Booth",
@@ -16,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
+      <body className={`antialiased`}>
         <Header />
         <UserProvider>
           <LogInWrapper children={children} />
