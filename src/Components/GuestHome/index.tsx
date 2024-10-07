@@ -1,8 +1,10 @@
+'use client'
+
 import React, { useEffect, useState } from "react";
-import Button from "../Button";
 import { recipeFetcher } from "@/utils/functions";
 import { RecipeType } from "@/utils/types";
 import { CircularProgress } from "@mui/material";
+import Button from "../Button";
 
 const GuestHome = () => {
   const [meal, setMeal] = useState<RecipeType | null>(null);
