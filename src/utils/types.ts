@@ -5,7 +5,7 @@ export type UserType = {
 
 export type UserContextType = {
   user: UserType | null,
-  setUser: (user:UserType) => void,
+  setUser: (user:UserType | null) => void,
   savedRecipes: SavedRecipesType[], 
   addRecipe: (recipeId: string) => void, 
   removeRecipe: (recipeId: string) => void, 
