@@ -48,7 +48,7 @@ const LogIn = () => {
             Got an account? Log in here!
           </p>
           <input
-            className="text-black p-4 rounded-md h-6 m-2"
+            className="text-black p-4 rounded-md h-6 m-2 outline-none"
             id="user-input"
             placeholder="Enter username"
             onChange={handleChange}
