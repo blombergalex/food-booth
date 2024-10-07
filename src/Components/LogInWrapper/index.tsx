@@ -5,7 +5,6 @@ import { useUserContext } from "@/utils/contexts";
 import { UserContextType } from "@/utils/types";
 import Menu from "../Menu";
 import GuestHome from "../GuestHome";
-import Button from "../Button";
 
 const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
   const { user } = useUserContext() as UserContextType;

@@ -23,10 +23,7 @@ const LogIn = () => {
       (user: UserType) => user.name === userInput
     );
     if (loggedInUser.length) {
-      console.log(loggedInUser[0]);
       setUser(loggedInUser[0]);
-      // } else if (userInput==('')) {
-      //   console.log('no user found')
     }
   };
 

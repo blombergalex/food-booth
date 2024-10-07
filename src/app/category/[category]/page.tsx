@@ -20,7 +20,6 @@ const recipesByCategory = ({params}:{params:{category:string}}) => {
 
   useEffect(() => {
     fetchRecipes();
-    console.log(user)
   }, [category])
 
   const saveCategoryClick = () => {

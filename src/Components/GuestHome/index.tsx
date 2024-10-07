@@ -13,7 +13,6 @@ const GuestHome = () => {
     if (data && data.meals.length > 0) {
       setMeal(data.meals[0]);
     } else {
-      console.log("No meal found");
     }
   };
 

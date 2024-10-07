@@ -12,7 +12,6 @@ const category = () => {
 
   const fetchRecipes = async () => {
     const data = await recipeFetcher({ action:`categories.php` })
-    console.log(data)
     const categories = data.categories;
     setCategories(categories);
   }
