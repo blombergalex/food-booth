@@ -60,6 +60,7 @@ const recipePage = ({params}: {params:{id:string}}) => {
       {recipe && 
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">{recipe.strMeal}</h3>
+        <h4>Style: {recipe.strArea}</h4>
         <Image 
           src={recipe.strMealThumb}
           alt={`Image of ${recipe.strMeal}`}
