@@ -14,7 +14,7 @@ const config: Config = {
       },
       fontFamily: {
         RubikMono: ['"Rubik Mono One", monospace'],
-      }
+      },
     },
   },
   plugins: [],
