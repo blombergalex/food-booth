@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/globals.css"
 import Header from "@/components/Header";
 import { UserProvider } from "@/utils/contexts";
 import LogInWrapper from "@/components/LogInWrapper";
