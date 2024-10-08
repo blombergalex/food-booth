@@ -37,3 +37,11 @@ export type CategoryType = {
   strCategory: string,
   strCategoryThumb: string,
 }
+
+export type RecipeCardType = {
+  idMeal: string,
+  linkSource: string,
+  imageSource: string,
+  altText: string,
+  title: string,
+}

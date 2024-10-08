@@ -4,9 +4,9 @@ import { useUserContext } from "@/utils/contexts";
 import { RecipeType, UserContextType } from "@/utils/types";
 import { useEffect, useState } from "react";
 import { recipeFetcher } from "@/utils/functions";
-import Link from "next/link";
-import Image from "next/image";
+
 import Button from "@/Components/Button";
+import RecipeCard from "@/Components/RecipeCard";
 
 export default function Home() {
   const { user } = useUserContext() as UserContextType;
@@ -47,24 +47,25 @@ export default function Home() {
           <div className="flex flex-wrap">
             {recipes &&
               recipes.map((meal: RecipeType) => (
-                <div
-                  key={meal.idMeal}
-                  className="m-2 p-6 bg-zinc-900 rounded-3xl w-[300px] items-center"
-                >
-                  <Link
-                    className="flex flex-col font-semibold text-center items-center text-slate-200"
-                    href={`/recipe/${meal.idMeal}`}
-                  >
-                    <Image
-                      src={meal.strMealThumb}
-                      width={220}
-                      height={220}
-                      alt={`Image of ${meal.strMeal}`}
-                      className="rounded-lg m-3"
-                    />
-                    {meal.strMeal}
-                  </Link>
-                </div>
+                <RecipeCard idMeal={meal.idMeal} linkSource={`/recipe/${meal.idMeal}`} imageSource={meal.strMealThumb} altText={`Image of ${meal.strMeal}`} title={meal.strMeal}  />
+                // <div
+                //   key={meal.idMeal}
+                //   className="m-2 p-6 bg-zinc-900 rounded-3xl w-[300px] items-center"
+                // >
+                //   <Link
+                //     className="flex flex-col font-semibold text-center items-center text-slate-200"
+                //     href={`/recipe/${meal.idMeal}`}
+                //   >
+                //     <Image
+                //       src={meal.strMealThumb}
+                //       width={220}
+                //       height={220}
+                //       alt={`Image of ${meal.strMeal}`}
+                //       className="rounded-lg m-3"
+                //     />
+                //     {meal.strMeal}
+                //   </Link>
+                // </div>
               ))}
           </div>
           <div className="w-fit"><Button onClick={handleClick} buttonText="Regenerate"/></div>
