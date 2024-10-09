@@ -44,7 +44,6 @@ const recipePage = ({params}: {params:{id:string}}) => {
   const isRecipeSaved = savedRecipes.some((savedRecipe) => savedRecipe.id === id);
 
   const handleSaveClick = () => {
-    console.log('clicked save recipe button')
     if (isRecipeSaved) {
       removeRecipe(id);
     } else {
