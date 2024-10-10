@@ -28,6 +28,12 @@ const LogIn = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
+
   const toggleLogin = () => {
     setShowLogin(!showLogin);
     window.scrollTo({
@@ -59,6 +65,7 @@ const LogIn = () => {
             id="user-input"
             placeholder="Enter username"
             onChange={handleChange}
+            onKeyDown={handleKeyDown}
           />
           <Button buttonText="Go" onClick={handleClick} />
           <div className="flex">
