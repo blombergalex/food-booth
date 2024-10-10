@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { recipeFetcher } from "@/utils/functions";
 import { RecipeType } from "@/utils/types";
 import { CircularProgress } from "@mui/material";
-import Button from "../Button";
+import Button from "@/app/components/Button";
 
 const GuestHome = () => {
   const [meal, setMeal] = useState<RecipeType | null>(null);
@@ -14,7 +14,7 @@ const GuestHome = () => {
 
     if (data && data.meals.length > 0) {
       setMeal(data.meals[0]);
-    } 
+    }
   };
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const GuestHome = () => {
       top: 0,
       behavior: "smooth",
     });
-  }
+  };
 
   return (
     <div className="flex flex-col items-center text-black p-4 my-10 mx-auto space-y-8 text-xl">
@@ -61,7 +61,16 @@ const GuestHome = () => {
               >
                 Go to Recipe Video
               </a>
-              <p>Or <span className="underline underline-offset-2 cursor-pointer" onClick={handleLoginAtTopClick}>Log in</span> at the top to get full recipe details.</p>
+              <p>
+                Or{" "}
+                <span
+                  className="underline underline-offset-2 cursor-pointer"
+                  onClick={handleLoginAtTopClick}
+                >
+                  Log in
+                </span>{" "}
+                at the top to get full recipe details.
+              </p>
             </>
           )}
         </div>
