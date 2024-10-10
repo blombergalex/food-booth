@@ -4,7 +4,7 @@ import Button from "@/app/components/Button";
 
 const Menu = () => {
   return (
-    <nav className="flex justify-evenly py-4 bg-orange-400 sticky top-[120px] md:top-[128px]">
+    <nav className="flex justify-evenly py-4 bg-orange-400 sticky top-[136px] md:top-[144px]">
       <Link href="/">
         <Button buttonText="Home" onClick={() => {}} />
       </Link>

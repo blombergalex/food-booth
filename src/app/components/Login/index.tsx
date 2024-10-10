@@ -55,7 +55,7 @@ const LogIn = () => {
           <label htmlFor="user-input"></label>
           <p className="m-2 text-black">Got an account? Log in here!</p>
           <input
-            className="text-black p-4 rounded-md h-6 m-2 outline-none border border-1 border-zinc-900 "
+            className="text-orange-700 p-4 rounded-md h-6 m-2 outline-none border border-1 border-orange-700 "
             id="user-input"
             placeholder="Enter username"
             onChange={handleChange}
@@ -66,7 +66,7 @@ const LogIn = () => {
               onClick={toggleShowUsernames} 
               onMouseEnter={toggleShowUsernames}
               onMouseLeave={hideShowUserNames}
-              className="ml-auto w-fit rounded-full px-2 bg-orange-300 cursor-pointer"
+              className="ml-auto w-fit rounded-full px-2 m-1 bg-orange-300 cursor-pointer"
             >
               ?
             </p>
@@ -86,7 +86,7 @@ const LogIn = () => {
         </div>
       ) : (
         <div
-          className="fixed top-[10px] right-4 z-50 flex items-center cursor-pointer border border-1 border-zinc-900 rounded-md p-1 hover:text-white hover:bg-zinc-950"
+          className="fixed top-[10px] right-4 z-50 flex items-center cursor-pointer border border-1 text-orange-700 border-orange-700 rounded-md p-1 hover:text-white hover:bg-orange-700 transition-all"
           onClick={toggleLogin}
         >
           <svg

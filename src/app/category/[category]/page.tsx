@@ -32,18 +32,18 @@ const recipesByCategory = ({ params }: { params: { category: string } }) => {
 
   return (
     <>
-      <h3 className="p-6 capitalize font-semibold text-lg">
+      <h3 className="p-6 capitalize font-semibold text-2xl md:text-3xl">
         Our most tasty {category} recipes
       </h3>
       {user?.category !== category ? (
-        <div className="p-6">
+        <div className="px-6">
           <Button
             buttonText="Make this your favourite category"
             onClick={saveCategoryClick}
           />
         </div>
       ) : (
-        <p className="m-6 font-semibold">
+        <p className="px-6 mx-2 font-semibold text-orange-700">
           {category} is your favourite type of meal!
         </p>
       )}

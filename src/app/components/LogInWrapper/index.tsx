@@ -25,7 +25,7 @@ const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
         <>
           <Menu />
           <div className="flex justify-between p-6">
-            <div className="text-black border-2 border-dotted border-orange-500 rounded-md p-3">
+            <div className="text-orange-950 border-2 border-dotted border-orange-500 rounded-md p-3">
               <p>Hi {user.name},</p>
               <p>Welcome to the inside!</p>
               <p>
@@ -34,7 +34,7 @@ const LogInWrapper = ({ children }: { children: React.ReactNode }) => {
               </p>
             </div>
             <div
-              className="fixed top-[10px] right-4 z-50 flex items-center cursor-pointer border border-1 border-zinc-900 rounded-md p-1 hover:text-white hover:bg-zinc-950"
+              className="fixed top-[10px] right-4 z-50 flex items-center cursor-pointer border border-1 text-orange-700 border-orange-700 rounded-md p-1 hover:text-white hover:bg-orange-700 transition-all"
               onClick={handleLogOut}
             >
               <svg

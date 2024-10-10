@@ -40,14 +40,17 @@ export default function Home() {
     <>
       {user && (
         <div className="flex flex-col space-y-2 p-6 text-black">
-          <p className="pl-2 my-4 text-xl">
+          <h3 className="font-semibold mt-4 text-2xl md:text-3xl">
+            Get inspired
+          </h3>
+          <p className="mt-4">
             Your favourite category of food is{" "}
             <span className="text-orange-600">
               {user.category.toLowerCase()},{" "}
             </span>
             here are some recipes you might like!
           </p>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap py-8">
             {recipes &&
               recipes.map((meal: RecipeType) => (
                 <RecipeCard
