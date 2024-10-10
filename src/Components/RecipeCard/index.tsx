@@ -2,10 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { RecipeCardType } from "@/utils/types";
 
-const RecipeCard = ({idMeal, linkSource, imageSource, altText, title}: RecipeCardType) => {
+const RecipeCard = ({linkSource, imageSource, altText, title}: RecipeCardType) => {
   return (
   <div
-    key={idMeal} // how reformat?
     className="m-2 p-6 bg-zinc-900 rounded-3xl w-[300px] items-center"
   >
     <Link

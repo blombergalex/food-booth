@@ -39,9 +39,9 @@ export type CategoryType = {
 }
 
 export type RecipeCardType = {
-  idMeal: string,
   linkSource: string,
   imageSource: string,
   altText: string,
   title: string,
+  key: string,
 }
