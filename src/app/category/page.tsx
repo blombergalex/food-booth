@@ -8,7 +8,6 @@ import Link from "next/link";
 
 const category = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
-  const [categoryChoice, setCategoryChoice] = useState<CategoryType | null>(null);
 
   const fetchRecipes = async () => {
     const data = await recipeFetcher({ action:`categories.php` })
@@ -26,7 +25,7 @@ const category = () => {
       <div className="flex flex-wrap justify-center lg:justify-start">
         {categories ? (
           categories.map((category) => (
-            <div className="m-2 p-6 bg-zinc-900 rounded-3xl w-[300px]">
+            <div className="m-2 p-6 bg-zinc-900 rounded-3xl w-[300px]" key={category.strCategory}>
               <Link
                 className="flex flex-col font-semibold text-center items-center text-slate-200"
                 href={`/category/${category.strCategory}`}
