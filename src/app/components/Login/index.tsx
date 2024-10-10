@@ -73,12 +73,14 @@ const LogIn = () => {
             </div>
             {showUsernames && (
               <div className="ml-auto w-fit p-3 bg-orange-300 rounded-md my-2">
-                <p>There are a limited number of registered users, please enter one of the following:</p>
-                {registeredUsers && 
-                  registeredUsers.map((user: UserType) => (
-                    <p>{user.name}</p>
-                  ))
-                }
+                <p className="text-start m-1">Registered users:</p>
+                <div className="flex flex-wrap">
+                  {registeredUsers &&
+                    registeredUsers.map((user: UserType) => (
+                      <p className="w-fit m-1">{user.name}</p>
+                    ))
+                  }
+                </div>
               </div>
             )}
         </div>

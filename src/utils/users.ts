@@ -6,11 +6,23 @@ export const registeredUsers: UserType[] = [
     category: "Seafood",
   },
   {
-    name: "John",
-    category: "Beef",
+    name: "Luna",
+    category: "Goat",
   },
   {
     name: "Ringo",
     category: "Vegan",
-  }
+  },
+  {
+    name: "Alex",
+    category: "Breakfast",
+  },
+  {
+    name: "Ziggy",
+    category: "Starter",
+  },
+  {
+    name: "Bubba",
+    category: "Beef",
+  },
 ]
