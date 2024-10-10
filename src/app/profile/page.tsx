@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import Button from "@/Components/Button";
 import { useUserContext } from "@/utils/contexts";
