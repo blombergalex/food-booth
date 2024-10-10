@@ -1,6 +1,6 @@
 "use client";
 
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useState, useEffect } from "react";
 import { registeredUsers } from "@/utils/users";
 import { UserContextType, UserType } from "@/utils/types";
 import { useUserContext } from "@/utils/contexts";
@@ -9,6 +9,7 @@ import Button from "@/app/components/Button";
 const LogIn = () => {
   const [userInput, setUserInput] = useState<string | null>(null);
   const [showLogin, setShowLogin] = useState<boolean>(false);
+  const [showUsernames, setShowUsernames] = useState<boolean>(false);
 
   const { setUser } = useUserContext() as UserContextType;
 
@@ -35,10 +36,21 @@ const LogIn = () => {
     });
   };
 
+  const toggleShowUsernames = () => {
+    setShowUsernames(!showUsernames);
+    console.log(showUsernames)
+  }
+
+  const hideShowUserNames = () => {
+    setTimeout(() => {
+      toggleShowUsernames()
+    }, 3500)
+  }
+
   return (
     <>
       {showLogin ? (
-        <div className="space-x-2 text-black p-2 text-right bg-orange-400 animate-fade-in-down">
+        <div className="space-2 text-black p-2 text-right bg-orange-400 animate-fade-in-down">
           <Button buttonText="Close" onClick={toggleLogin} />
           <label htmlFor="user-input"></label>
           <p className="m-2 text-black">Got an account? Log in here!</p>
@@ -49,6 +61,26 @@ const LogIn = () => {
             onChange={handleChange}
           />
           <Button buttonText="Go" onClick={handleClick} />
+          <div className="flex">
+            <p 
+              onClick={toggleShowUsernames} 
+              onMouseEnter={toggleShowUsernames}
+              onMouseLeave={hideShowUserNames}
+              className="ml-auto w-fit rounded-full px-2 bg-orange-300 cursor-pointer"
+            >
+              ?
+            </p>
+            </div>
+            {showUsernames && (
+              <div className="ml-auto w-fit p-3 bg-orange-300 rounded-md my-2">
+                <p>There are a limited number of registered users, please enter one of the following:</p>
+                {registeredUsers && 
+                  registeredUsers.map((user: UserType) => (
+                    <p>{user.name}</p>
+                  ))
+                }
+              </div>
+            )}
         </div>
       ) : (
         <div
