@@ -54,8 +54,6 @@ const recipePage = ({ params }: { params: { id: string } }) => {
     } else {
       addRecipe(id);
     }
-    console.log(savedRecipes);
-    console.log(id);
   };
 
   return (

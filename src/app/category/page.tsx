@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { recipeFetcher } from "@/utils/functions"
 import { CategoryType } from "@/utils/types"
