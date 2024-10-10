@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { UserProvider } from "@/utils/contexts";
-import LogInWrapper from "@/app/category/LogInWrapper";
+import LogInWrapper from "@/app/components/LogInWrapper";
 import Header from "@/app/components/Header";
 import "./globals.css";
 
