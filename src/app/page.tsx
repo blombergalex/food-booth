@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { useUserContext } from "@/utils/contexts";
 import { RecipeType, UserContextType } from "@/utils/types";

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from "react";
 import { recipeFetcher } from "@/utils/functions";
 import { RecipeType } from "@/utils/types";
@@ -12,8 +14,7 @@ const GuestHome = () => {
 
     if (data && data.meals.length > 0) {
       setMeal(data.meals[0]);
-    } else {
-    }
+    } 
   };
 
   useEffect(() => {
@@ -39,9 +40,9 @@ const GuestHome = () => {
       </div>
       <Button buttonText="New recipe" onClick={handleClick} />
       {meal ? (
-        <div className="border-2 w-3/4 bg-gray-900 text-slate-200 rounded-3xl p-10  space-y-16">
+        <div className="border-2 w-3/4 bg-gray-900 text-slate-200 rounded-3xl p-10 space-y-16">
           <p className="text-2xl m-3 font-bold">{meal.strMeal}</p>
-          <div className="bg-orange-400 mt-10 rounded-3xl w-4/5">
+          <div className="bg-orange-400 mt-10 rounded-3xl mr-10 max-w-[700px]">
             <img
               src={meal.strMealThumb}
               alt={meal.strMeal}
