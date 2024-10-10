@@ -47,15 +47,18 @@ const profile = () => {
           {savedRecipes.length > 0 ? (
             <ul className="bg-orange-400 p-4 rounded-xl">
               {savedRecipes.map((recipe) => (
-                <li key={recipe.id} className="m-2underline underline-offset-4">
-                  <Link href={`/recipe/${recipe.id}`}>
+                <div key={recipe.id} className="flex m-2 justify-between items-center ">
+                  <Link 
+                    href={`/recipe/${recipe.id}`}
+                    className="hover:text-white cursor-pointer"
+                  >
                     {recipeNames[recipe.id]}
                   </Link>
                   <Button
                     buttonText="Unsave"
                     onClick={() => removeRecipe(recipe.id)}
                   />
-                </li>
+                </div>
               ))}
             </ul>
           ) : (
