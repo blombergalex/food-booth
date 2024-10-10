@@ -41,7 +41,7 @@ export default function Home() {
       {user && (
         <div className="flex flex-col space-y-2 p-6 text-black">
           <p className="pl-2 my-4 text-xl">
-            Your favourite category of food is {user.category.toLowerCase()},
+            Your favourite category of food is <span className="text-orange-600">{user.category.toLowerCase()}, </span>
             here are some recipes you might like!
           </p>
           <div className="flex flex-wrap">

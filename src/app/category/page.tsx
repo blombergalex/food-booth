@@ -22,6 +22,7 @@ const category = () => {
 
   return (
     <div className="sm:max-w-[650px] md:max-w-[950px] mx-auto my-6">
+      <h3 className="text-center py-6 font-semibold md:text-2xl">Browse recipes by category</h3>
       <div className="flex flex-wrap justify-center lg:justify-start">
         {categories ? (
           categories.map((category) => (
