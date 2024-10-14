@@ -7,7 +7,7 @@ export const registeredUsers: UserType[] = [
   },
   {
     name: "Luna",
-    category: "Goat",
+    category: "Lamb",
   },
   {
     name: "Ringo",
