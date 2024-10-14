@@ -10,6 +10,7 @@ const LogIn = () => {
   const [userInput, setUserInput] = useState<string | null>(null);
   const [showLogin, setShowLogin] = useState<boolean>(false);
   const [showUsernames, setShowUsernames] = useState<boolean>(false);
+  const [showLoginError, setShowLoginError] = useState<string | null>(null);
 
   const { setUser } = useUserContext() as UserContextType;
 
@@ -25,6 +26,8 @@ const LogIn = () => {
     );
     if (loggedInUser.length) {
       setUser(loggedInUser[0]);
+    } else {
+      setShowLoginError(userInput);
     }
   };
 
@@ -44,14 +47,23 @@ const LogIn = () => {
 
   const toggleShowUsernames = () => {
     setShowUsernames(!showUsernames);
-    console.log(showUsernames)
-  }
+  };
 
-  const hideShowUserNames = () => {
-    setTimeout(() => {
-      toggleShowUsernames()
-    }, 3500)
-  }
+  const hideInfo = () => {
+    const timer = setTimeout(() => {
+      toggleShowUsernames();
+    }, 3500);
+    return() => clearTimeout(timer);
+  };
+
+  useEffect(() => {
+    if(showLoginError) {
+      const timer = setTimeout(()  => {
+      setShowLoginError(null)  
+      }, 3500)
+      return () => clearTimeout(timer);
+    }
+  }, [showLoginError])
 
   return (
     <>
@@ -68,28 +80,29 @@ const LogIn = () => {
             onKeyDown={handleKeyDown}
           />
           <Button buttonText="Go" onClick={handleClick} />
-          <div className="flex">
-            <p 
-              onClick={toggleShowUsernames} 
+          <div>
+            {showLoginError && 
+              <p className="ml-auto">Couldn't find user "{showLoginError}"</p>}
+            <p
+              onClick={toggleShowUsernames}
               onMouseEnter={toggleShowUsernames}
-              onMouseLeave={hideShowUserNames}
+              onMouseLeave={hideInfo}
               className="ml-auto w-fit rounded-full px-2 m-1 bg-orange-300 cursor-pointer"
             >
               ?
             </p>
-            </div>
-            {showUsernames && (
-              <div className="ml-auto w-fit p-3 bg-orange-300 rounded-md my-2">
-                <p className="text-start m-1">Registered users:</p>
-                <div className="flex flex-wrap">
-                  {registeredUsers &&
-                    registeredUsers.map((user: UserType) => (
-                      <p className="w-fit m-1">{user.name}</p>
-                    ))
-                  }
-                </div>
+          </div>
+          {showUsernames && (
+            <div className="ml-auto w-fit p-3 bg-orange-300 rounded-md my-2">
+              <p className="text-start m-1">Registered users:</p>
+              <div className="flex flex-wrap">
+                {registeredUsers &&
+                  registeredUsers.map((user: UserType) => (
+                    <p className="w-fit m-1">{user.name}</p>
+                  ))}
               </div>
-            )}
+            </div>
+          )}
         </div>
       ) : (
         <div
