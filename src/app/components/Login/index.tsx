@@ -98,7 +98,7 @@ const LogIn = () => {
               <div className="flex flex-wrap">
                 {registeredUsers &&
                   registeredUsers.map((user: UserType) => (
-                    <p className="w-fit m-1">{user.name}</p>
+                    <p className="w-fit m-1" key={user.name}>{user.name}</p>
                   ))}
               </div>
             </div>
